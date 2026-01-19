@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuratierte Filmauswahl</title>
+    <style>
+        :root { --accent: #e50914; --bg: #0f0f0f; --card: #1a1a1a; }
+        body { 
+            font-family: 'Georgia', serif; 
+            background-color: var(--bg); 
+            color: #e0e0e0; 
+            margin: 0; 
+            padding: 20px; 
+            padding-bottom: 250px; 
+            line-height: 1.6; 
+        }
+        header { text-align: center; padding: 60px 20px 40px; border-bottom: 1px solid #333; max-width: 900px; margin: 0 auto 40px; }
+        h1 { font-size: 2.8rem; letter-spacing: 2px; color: white; margin-bottom: 5px; text-transform: uppercase; }
+        h2 { font-size: 1.4rem; color: #888; margin-bottom: 30px; font-weight: normal; font-family: Arial, sans-serif; }
+        .intro-text { text-align: justify; color: #bbb; font-size: 1.1rem; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .deadline { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-family: Arial, sans-serif; margin-top: 20px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 50px; max-width: 1400px; margin: auto; }
+        
+        .movie-card { background: var(--card); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.4s ease; border-bottom: 3px solid transparent; }
+        .movie-card:hover { transform: translateY(-5px); background: #222; }
+        .movie-card.selected { border-bottom-color: var(--accent); background: #251818; }
+
+        .poster-container { width: 100%; height: 450px; background: #000; display: flex; justify-content: center; align-items: center; padding-top: 15px; }
+        .movie-card img { max-width: 90%; max-height: 95%; object-fit: contain; }
+
+        .content { padding: 25px; flex-grow: 1; }
+        .meta { font-family: 'Arial', sans-serif; font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-bottom: 10px; }
+        .quote { font-style: italic; color: #888; font-size: 0.9rem; margin-bottom: 15px; border-left: 2px solid var(--accent); padding-left: 10px; min-height: 40px; }
+        .desc { font-size: 1.05rem; margin-bottom: 20px; color: #ccc; }
+        
+        .btn-trailer { color: var(--accent); text-decoration: none; font-family: 'Arial', sans-serif; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--accent); padding: 5px 10px; border-radius: 3px; }
+        
+        .checkbox-container { margin-top: 25px; padding-top: 15px; border-top: 1px solid #333; }
+        input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; vertical-align: middle; }
+        label { cursor: pointer; font-family: 'Arial', sans-serif; font-weight: bold; color: white; }
+
+        #submit-area { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(15, 15, 15, 0.98); padding: 30px; text-align: center; border-top: 1px solid var(--accent); z-index: 1000; }
+        .input-name { padding: 12px 20px; border-radius: 2px; border: 1px solid #444; background: #222; color: white; margin-right: 15px; width: 250px; font-family: Arial, sans-serif; }
+        button { background: var(--accent); color: white; border: none; padding: 12px 40px; font-family: 'Arial', sans-serif; font-size: 1rem; font-weight: bold; cursor: pointer; transition: 0.3s; border-radius: 2px; }
+        button:disabled { background: #444; color: #888; cursor: not-allowed; }
+        .counter { margin-bottom: 15px; font-family: 'Arial', sans-serif; font-size: 0.9rem; color: #aaa; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Programmauswahl</h1>
+    <h2>Filmabend am Freitag, den 23.01.2026</h2>
+    <div class="intro-text">
+        Liebe Kinofreundinnen und -Freunde, <br><br>
+        die vorliegende Auswahl ist – das lässt sich kaum leugnen – ein tiefes Eintauchen in das Archiv des „Cinéma Masculin“. Wir begegnen Männern in existenziellen Krisen, einsamen Wölfen und jener speziellen Sorte Melancholie, die oft nur durch Zigarrenrauch oder Zeitlupen-Action aufgelöst werden kann. Es ist eine Liste, die so viel Testosteron atmet, dass wir als intellektuelles Gegengewicht – so viel bereits jetzt – den nächsten Abend konsequent der weiblichen Ästhetik und Perspektive widmen werden. <br><br>
+        Bis dahin lade ich euch ein, aus diesen Meilensteinen eure fünf Favoriten zu küren. Möge die filmische Qualität über die fragwürdige Rollenverteilung triumphieren.
+    </div>
+    <div class="deadline">Deadline: 21. Januar 2026 | 20:00 Uhr</div>
+</header>
+
+<form id="voteForm" action="https://formsubmit.co/lars.rothenburg@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Neue Filmvoting-Ergebnisse!">
+    
+    <div class="grid">
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://blastatrumpet.wordpress.com/wp-content/uploads/2016/12/dangal-poster.jpg"></div>
+            <div class="content">
+                <div class="meta">2016 | Regie: Nitesh Tiwari</div>
+                <h3>Dangal</h3>
+                <div class="quote">"Ein Triumph des Willens über die Tradition."</div>
+                <div class="meta" style="text-transform:none;">Cast: Aamir Khan</div>
+                <div class="desc">Ein hochemotionales Epos über Disziplin und den unbändigen Willen, gesellschaftliche Grenzen zu sprengen.</div>
+                <a href="https://youtu.be/x_7YlGv9u1g" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_1" value="Dangal"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://www.companyfolders.com/blog/media/2017/07/vertigo.jpg"></div>
+            <div class="content">
+                <div class="meta">1958 | Regie: Alfred Hitchcock</div>
+                <h3>Vertigo</h3>
+                <div class="quote">"Hitchcocks persönlichster Film."</div>
+                <div class="meta" style="text-transform:none;">Cast: James Stewart, Kim Novak</div>
+                <div class="desc">Ein abgründiges Meisterwerk über Obsession und Identität, das mit seiner Bildsprache in den Bann zieht.</div>
+                <a href="https://youtu.be/95o-QM-lz8g" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_2" value="Vertigo"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://metadata-static.plex.tv/a/gracenote/a7f3dc685d5771de1bb1b7212d1c0c87.jpg"></div>
+            <div class="content">
+                <div class="meta">1997 | Regie: Curtis Hanson</div>
+                <h3>L.A. Confidential</h3>
+                <div class="quote">"Die Perfektion des Neo-Noir."</div>
+                <div class="meta" style="text-transform:none;">Cast: Kevin Spacey, Russell Crowe</div>
+                <div class="desc">Ein messerscharfer Krimi, der die dunklen Facetten des Hollywood-Glanzes der 50er Jahre demaskiert.</div>
+                <a href="https://youtu.be/6sOXrY5yV4g" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_3" value="L.A. Confidential"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://media.senscritique.com/media/000006656449/source_big/Barry_Lyndon.jpg"></div>
+            <div class="content">
+                <div class="meta">1975 | Regie: Stanley Kubrick</div>
+                <h3>Barry Lyndon</h3>
+                <div class="quote">"Ein Film wie ein Museumsgang bei Kerzenschein."</div>
+                <div class="meta" style="text-transform:none;">Cast: Ryan O'Neal</div>
+                <div class="desc">Visuelle Perfektion: Ein bildgewaltiges Zeitzeugnis, gefilmt ausschließlich bei natürlichem Licht.</div>
+                <a href="https://youtu.be/XjPSGuJskxM" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_4" value="Barry Lyndon"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://image.tmdb.org/t/p/original/mGcRgFTFoD9qf7eXUXqgSRew4n7.jpg"></div>
+            <div class="content">
+                <div class="meta">1974 | Regie: Roman Polanski</div>
+                <h3>Chinatown</h3>
+                <div class="quote">"Das perfekte Drehbuch existiert."</div>
+                <div class="meta" style="text-transform:none;">Cast: Jack Nicholson, Faye Dunaway</div>
+                <div class="desc">Eine griechische Tragödie im Gewand eines Kriminalfilms – korrupt, fatalistisch und brillant.</div>
+                <a href="https://youtu.be/T37QkBc4IGY" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_5" value="Chinatown"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://upload.wikimedia.org/wikipedia/en/0/01/La_Haine_%281995_movie_poster%29.jpg"></div>
+            <div class="content">
+                <div class="meta">1995 | Regie: Mathieu Kassovitz</div>
+                <h3>La Haine</h3>
+                <div class="quote">"Es zählt nicht der Fall, sondern die Landung."</div>
+                <div class="meta" style="text-transform:none;">Cast: Vincent Cassel</div>
+                <div class="desc">Ein kompromissloser Blick auf soziale Spannungen und die Dynamik von Gewalt in Paris.</div>
+                <a href="https://youtu.be/kauE5amBy0U" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_6" value="La Haine"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://i.pinimg.com/736x/b8/8d/36/b88d36888609f0ca8c3ba0f3e2e55099.jpg"></div>
+            <div class="content">
+                <div class="meta">1994 | Regie: Wong Kar-wai</div>
+                <h3>Chungking Express</h3>
+                <div class="quote">"Pure cineastische Lyrik."</div>
+                <div class="meta" style="text-transform:none;">Cast: Tony Leung, Faye Wong</div>
+                <div class="desc">Eine berauschende Reflexion über Einsamkeit und flüchtige Begegnungen im nächtlichen Hongkong.</div>
+                <a href="https://youtu.be/4nwTrhVKQlU" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_7" value="Chungking Express"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://c8.alamy.com/comp/BNPXRP/film-poster-magnolia-1999-BNPXRP.jpg"></div>
+            <div class="content">
+                <div class="meta">1999 | Regie: Paul Thomas Anderson</div>
+                <h3>Magnolia</h3>
+                <div class="quote">"Die Vergangenheit hat nicht mit uns abgeschlossen."</div>
+                <div class="meta" style="text-transform:none;">Cast: Tom Cruise, Julianne Moore</div>
+                <div class="desc">Verflochtene Lebenswege am Rande des Nervenzusammenbruchs – ein intensives Ensemble-Drama.</div>
+                <a href="https://youtu.be/KnamcFv_N9Q" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_8" value="Magnolia"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://m.media-amazon.com/images/M/MV5BOTdlOWFlMjYtOWFlNy00Nzk5LTljZDAtMDBmYTNjMWIxZTRmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"></div>
+            <div class="content">
+                <div class="meta">2000 | Regie: Béla Tarr</div>
+                <h3>Die Werckmeisterschen Harmonien</h3>
+                <div class="quote">"Kino jenseits der Zeit."</div>
+                <div class="meta" style="text-transform:none;">Cast: Lars Rudolph</div>
+                <div class="desc">Eine meditative Reise in die Seele, erzählt in hypnotischen, langen Einstellungen.</div>
+                <a href="https://youtu.be/-tJVdq_G_Go" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_9" value="Die Werckmeisterschen Harmonien"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://sothebys-md.brightspotcdn.com/04/37/4b6244d045b7a3bcb53791a1be58/l22898-ccr7x-1.jpg"></div>
+            <div class="content">
+                <div class="meta">1985 | Regie: Terry Gilliam</div>
+                <h3>Brazil</h3>
+                <div class="quote">"Ein futuristischer Albtraum voller Witz."</div>
+                <div class="meta" style="text-transform:none;">Cast: Jonathan Pryce, Robert De Niro</div>
+                <div class="desc">Eine satirische Dystopie über den Kampf des Individuums gegen eine übermächtige Bürokratie.</div>
+                <a href="https://youtu.be/ZKPFC8DA9_8" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_10" value="Brazil"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://s3.amazonaws.com/criterion-production/films/300f04cc44f51c1d1b81f577e32bba58/elypGlAsVgJgbxoAuddnPOiRlvDUf5_large.jpg"></div>
+            <div class="content">
+                <div class="meta">1991 | Regie: Jim Jarmusch</div>
+                <h3>Night on Earth</h3>
+                <div class="quote">"Jarmusch in Bestform."</div>
+                <div class="meta" style="text-transform:none;">Cast: Winona Ryder, Roberto Benigni</div>
+                <div class="desc">Fünf Taxifahrten, fünf Metropolen: Ein lakonischer Blick auf die Poesie des Zufalls.</div>
+                <a href="https://youtu.be/6m_YI_t9o_4" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_11" value="Night on Earth"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://media.senscritique.com/media/000007130814/source_big/Arizona_Dream.jpg"></div>
+            <div class="content">
+                <div class="meta">1993 | Regie: Emir Kusturica</div>
+                <h3>Arizona Dream</h3>
+                <div class="quote">"Träume sind realer als die Wirklichkeit."</div>
+                <div class="meta" style="text-transform:none;">Cast: Johnny Depp, Jerry Lewis</div>
+                <div class="desc">Eine exzentrische Erzählung über die Sehnsucht nach Freiheit und die Absurdität des Daseins.</div>
+                <a href="https://youtu.be/OQ6bcPoCDF4" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_12" value="Arizona Dream"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://static1.moviewebimages.com/wordpress/wp-content/uploads/movie/85StrRi9D1NhNxWJ0EXerZ1afegs6u.jpg"></div>
+            <div class="content">
+                <div class="meta">1990 | Regie: Adrian Lyne</div>
+                <h3>Jacob's Ladder</h3>
+                <div class="quote">"Wenn du Angst vor dem Sterben hast, siehst du Teufel."</div>
+                <div class="meta" style="text-transform:none;">Cast: Tim Robbins</div>
+                <div class="desc">Ein verstörender Grenzgang zwischen Realität und Wahn, der die Schrecken des Krieges zeigt.</div>
+                <a href="https://youtu.be/rJztRnDxdM8" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_13" value="Jacob's Ladder"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://i.pinimg.com/736x/05/47/2f/05472f04f701c728aff5d7c3f7e07bdb.jpg"></div>
+            <div class="content">
+                <div class="meta">1986 | Regie: Roland Joffé</div>
+                <h3>The Mission</h3>
+                <div class="quote">"Die Kraft der Vergebung gegen die Gewalt."</div>
+                <div class="meta" style="text-transform:none;">Cast: Jeremy Irons, Robert De Niro</div>
+                <div class="desc">Ein kraftvolles Epos über Glauben und Widerstand vor der Kulisse gigantischer Wasserfälle.</div>
+                <a href="https://youtu.be/HU14R9hbUFc" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_14" value="The Mission"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://static1.moviewebimages.com/wordpress/wp-content/uploads/movie/O9Zcs5mrGue1X4LOyv1FDpzcRDLjni.jpg"></div>
+            <div class="content">
+                <div class="meta">1990 | Regie: Martin Scorsese</div>
+                <h3>Goodfellas</h3>
+                <div class="quote">"Ich wollte immer ein Gangster sein."</div>
+                <div class="meta" style="text-transform:none;">Cast: Ray Liotta, Robert De Niro</div>
+                <div class="desc">Eine rasant inszenierte Chronik des organisierten Verbrechens – ein unerreichtes Meisterwerk.</div>
+                <a href="https://youtu.be/2ilzidi_J8Q" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_15" value="Goodfellas"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://media-cache.cinematerial.com/p/500x/crvrqmjt/vivement-dimanche-french-movie-poster.jpg"></div>
+            <div class="content">
+                <div class="meta">1983 | Regie: François Truffaut</div>
+                <h3>Auf Liebe und Tod</h3>
+                <div class="quote">"Truffauts verspieltes Finale."</div>
+                <div class="meta" style="text-transform:none;">Cast: Fanny Ardant</div>
+                <div class="desc">Eine charmante Verbeugung vor dem klassischen Krimi, getragen von französischer Eleganz.</div>
+                <a href="https://youtu.be/l7kHRuhZnlA" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_16" value="Auf Liebe und Tod"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://www.originalfilmart.com/cdn/shop/products/husbands_1970_original_film_art.jpg"></div>
+            <div class="content">
+                <div class="meta">1970 | Regie: John Cassavetes</div>
+                <h3>Husbands</h3>
+                <div class="quote">"Ehrlicher war das Kino selten."</div>
+                <div class="meta" style="text-transform:none;">Cast: Ben Gazzara, Peter Falk</div>
+                <div class="desc">Ein radikaler Blick auf Männlichkeit, Freundschaft und Trauer. Rohes Gefühlskino.</div>
+                <a href="https://youtu.be/YRJ8VecuWEQ" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_17" value="Husbands"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://image.tmdb.org/t/p/original/rAV8ocU6upVhFuTRkcfsgJQ3cLT.jpg"></div>
+            <div class="content">
+                <div class="meta">1991 | Regie: James Cameron</div>
+                <h3>Terminator 2</h3>
+                <div class="quote">"Hasta la vista, baby."</div>
+                <div class="meta" style="text-transform:none;">Cast: Arnold Schwarzenegger</div>
+                <div class="desc">Ein Meilenstein, der bahnbrechende Effekte mit einer humanistischen Botschaft verbindet.</div>
+                <a href="https://youtu.be/CRRlbK5w8AE" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_18" value="Terminator 2"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://www.themoviedb.org/t/p/original/mPNfcciAm1MfTkkxq3DkbGdgxmY.jpg"></div>
+            <div class="content">
+                <div class="meta">1994 | Regie: Luc Besson</div>
+                <h3>Léon – The Professional</h3>
+                <div class="quote">"Keine Frauen, keine Kinder."</div>
+                <div class="meta" style="text-transform:none;">Cast: Jean Reno, Natalie Portman</div>
+                <div class="desc">Die ungewöhnliche Symbiose zwischen einem Profikiller und einem Waisenmädchen.</div>
+                <a href="https://youtu.be/aNQqoExfQsg" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_19" value="Léon – The Professional"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster-container"><img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Reservoirdog.jpg"></div>
+            <div class="content">
+                <div class="meta">1992 | Regie: Quentin Tarantino</div>
+                <h3>Reservoir Dogs</h3>
+                <div class="quote">"Sind Sie fertig mit dem Gebelle?"</div>
+                <div class="meta" style="text-transform:none;">Cast: Harvey Keitel, Tim Roth</div>
+                <div class="desc">Ein klaustrophobisches Kammerspiel, das durch seine Erzählweise das Genre revolutionierte.</div>
+                <a href="https://youtu.be/vayksn4Y93A" target="_blank" class="btn-trailer">TRAILER</a>
+                <div class="checkbox-container"><label><input type="checkbox" name="Film_20" value="Reservoir Dogs"> &nbsp; AUSWÄHLEN</label></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="submit-area">
+        <div id="active-voting">
+            <div class="counter">AUSWAHL: <span id="count">0</span> von 5</div>
+            <input type="text" name="Name des Gastes" id="userName" class="input-name" placeholder="Dein Name" required>
+            <button type="submit" id="submitBtn" disabled>Abstimmung abschicken</button>
+        </div>
+        <div id="expired" style="display:none; color: var(--accent); font-weight: bold;">Die Abstimmung ist bereits beendet.</div>
+    </div>
+</form>
+
+<script>
+    const voteForm = document.getElementById('voteForm');
+    const countLabel = document.getElementById('count');
+    const submitBtn = document.getElementById('submitBtn');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            const selected = document.querySelectorAll('input[type="checkbox"]:checked');
+            countLabel.innerText = selected.length;
+            
+            // Button nur aktiv bei 1-5 Filmen
+            submitBtn.disabled = (selected.length === 0 || selected.length > 5);
+            
+            // Restliche Checkboxen sperren bei 5 Filmen
+            checkboxes.forEach(box => {
+                if (selected.length >= 5 && !box.checked) {
+                    box.disabled = true;
+                } else {
+                    box.disabled = false;
+                }
+                box.closest('.movie-card').classList.toggle('selected', box.checked);
+            });
+        });
+    });
+
+    // Deadline Check (21.01.2026, 20:00)
+    const deadline = new Date('2026-01-21T20:00:00');
+    if (new Date() > deadline) {
+        document.getElementById('active-voting').style.display = 'none';
+        document.getElementById('expired').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
