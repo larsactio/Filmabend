@@ -25,6 +25,7 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; max-width: 1400px; margin: auto; }
         
         .movie-card { background: var(--card); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; border-bottom: 3px solid transparent; }
+        .movie-card:hover { transform: translateY(-5px); background: #222; }
         .movie-card.selected { border-bottom-color: var(--accent); background: #251818; }
 
         .poster-container { width: 100%; height: 400px; background: #000; display: flex; justify-content: center; align-items: center; padding-top: 10px; }
@@ -32,7 +33,7 @@
 
         .content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
         .meta { font-family: 'Arial', sans-serif; font-size: 0.7rem; text-transform: uppercase; color: #888; letter-spacing: 1px; margin-bottom: 8px; }
-        .quote { font-style: italic; color: #aaa; font-size: 0.9rem; margin-bottom: 15px; border-left: 2px solid var(--accent); padding-left: 10px; min-height: 45px; display: flex; align-items: center; }
+        .quote { font-style: italic; color: #aaa; font-size: 0.9rem; margin-bottom: 15px; border-left: 2px solid var(--accent); padding-left: 10px; min-height: 55px; display: flex; align-items: center; }
         .desc { font-size: 1rem; margin-bottom: 20px; color: #ccc; flex-grow: 1; }
         
         .btn-trailer { color: var(--accent); text-decoration: none; font-family: 'Arial', sans-serif; font-size: 0.75rem; font-weight: bold; border: 1px solid var(--accent); padding: 8px 12px; border-radius: 4px; display: inline-block; text-align: center; transition: 0.3s; }
@@ -61,8 +62,8 @@
     <h1>Programmauswahl</h1>
     <h2>Filmabend am Freitag, den 23.01.2026</h2>
     <div class="intro-text">
-        Liebe Kinofreundinnen und -Freunde, <br><br>
-        die vorliegende Auswahl ist – das lässt sich kaum leugnen – ein tiefes Eintauchen in das Archiv des „Cinéma Masculin“. Wir begegnen Männern in existenziellen Krisen, einsamen Wölfen und jener speziellen Sorte Melancholie, die oft nur durch Zigarrenrauch oder Zeitlupen-Action aufgelöst werden kann. Es ist eine Liste, die so viel Testosteron atmet, dass wir als intellektuelles Gegengewicht – so viel bereits jetzt – den nächsten Abend konsequent der weiblichen Ästhetik und Perspektive widmen werden. <br><br>
+        Werte Cineastinnen und Cineasten, <br><br>
+        die vorliegende Auswahl ist – das lässt sich kaum leugnen – ein tiefes Eintauchen in das Archiv des „Cinéma Masculin“. Wir begegnen Männern in existenziellen Krisen, einsamen Wölfen und jener speziellen Sorte Melancholie, die oft nur durch Zigarrenrauch oder Zeitlupen-Action aufgelöst werden kann. Es ist eine Liste, die so viel Testosteron atmet, dass wir als intellektuelles Gegengewicht den nächsten Abend konsequent der weiblichen Ästhetik und Perspektive widmen werden. <br><br>
         Bis dahin lade ich euch ein, aus diesen Meilensteinen eure fünf Favoriten zu küren. Möge die filmische Qualität über die fragwürdige Rollenverteilung triumphieren.
     </div>
     <div class="deadline">Deadline: 21. Januar 2026 | 20:00 Uhr</div>
@@ -78,7 +79,7 @@
             <div class="content">
                 <div class="meta">2016 | Regie: Nitesh Tiwari</div>
                 <h3>Dangal</h3>
-                <div class="quote">"Ein Triumph des Willens über die Tradition." <br>— Nitesh Tiwari</div>
+                <div class="quote">"Ein kraftvolles Lehrstück über Empowerment, das weit über den Ring hinausgeht." <br>— The Guardian</div>
                 <div class="meta" style="text-transform:none;">Cast: Aamir Khan</div>
                 <div class="desc">Ein hochemotionales Epos über Disziplin und den unbändigen Willen, gesellschaftliche Grenzen zu sprengen.</div>
                 <a href="https://youtu.be/x_7YlGv9u1g" target="_blank" class="btn-trailer">TRAILER</a>
@@ -91,7 +92,7 @@
             <div class="content">
                 <div class="meta">1958 | Regie: Alfred Hitchcock</div>
                 <h3>Vertigo</h3>
-                <div class="quote">"Hitchcocks persönlichster Film." <br>— François Truffaut</div>
+                <div class="quote">"Hitchcocks persönlichstes Meisterwerk und der ultimative Film über die Macht der Träume." <br>— François Truffaut</div>
                 <div class="meta" style="text-transform:none;">Cast: James Stewart, Kim Novak</div>
                 <div class="desc">Ein abgründiges Meisterwerk über Obsession und Identität, das mit seiner Bildsprache in den Bann zieht.</div>
                 <a href="https://youtu.be/95o-QM-lz8g" target="_blank" class="btn-trailer">TRAILER</a>
@@ -104,7 +105,7 @@
             <div class="content">
                 <div class="meta">1997 | Regie: Curtis Hanson</div>
                 <h3>L.A. Confidential</h3>
-                <div class="quote">"Die Perfektion des Neo-Noir." <br>— Roger Ebert</div>
+                <div class="quote">"Ein triumphales Beispiel dafür, dass das klassische Hollywood-Kino noch immer atmet." <br>— Roger Ebert</div>
                 <div class="meta" style="text-transform:none;">Cast: Kevin Spacey, Russell Crowe</div>
                 <div class="desc">Ein messerscharfer Krimi, der die dunklen Facetten des Hollywood-Glanzes der 50er Jahre demaskiert.</div>
                 <a href="https://youtu.be/6sOXrY5yV4g" target="_blank" class="btn-trailer">TRAILER</a>
@@ -117,7 +118,7 @@
             <div class="content">
                 <div class="meta">1975 | Regie: Stanley Kubrick</div>
                 <h3>Barry Lyndon</h3>
-                <div class="quote">"Ein Film wie ein Museumsgang bei Kerzenschein." <br>— Stanley Kubrick</div>
+                <div class="quote">"Jedes Bild ist ein Gemälde. Ein Film, der die Zeit zum Stillstand bringt." <br>— Martin Scorsese</div>
                 <div class="meta" style="text-transform:none;">Cast: Ryan O'Neal</div>
                 <div class="desc">Visuelle Perfektion: Ein bildgewaltiges Zeitzeugnis, gefilmt ausschließlich bei natürlichem Licht.</div>
                 <a href="https://youtu.be/XjPSGuJskxM" target="_blank" class="btn-trailer">TRAILER</a>
@@ -130,7 +131,7 @@
             <div class="content">
                 <div class="meta">1974 | Regie: Roman Polanski</div>
                 <h3>Chinatown</h3>
-                <div class="quote">"Das perfekte Drehbuch existiert." <br>— Robert Towne</div>
+                <div class="quote">"Vielleicht das am perfektesten konstruierte Drehbuch der Filmgeschichte." <br>— Syd Field</div>
                 <div class="meta" style="text-transform:none;">Cast: Jack Nicholson, Faye Dunaway</div>
                 <div class="desc">Eine griechische Tragödie im Gewand eines Kriminalfilms – korrupt, fatalistisch und brillant.</div>
                 <a href="https://youtu.be/T37QkBc4IGY" target="_blank" class="btn-trailer">TRAILER</a>
@@ -143,7 +144,7 @@
             <div class="content">
                 <div class="meta">1995 | Regie: Mathieu Kassovitz</div>
                 <h3>La Haine</h3>
-                <div class="quote">"Es zählt nicht der Fall, sondern die Landung." <br>— Hubert Koundé</div>
+                <div class="quote">"Ein visueller Schlag in die Magengrube, der heute relevanter ist als je zuvor." <br>— Empire Magazine</div>
                 <div class="meta" style="text-transform:none;">Cast: Vincent Cassel</div>
                 <div class="desc">Ein kompromissloser Blick auf soziale Spannungen und die Dynamik von Gewalt in Paris.</div>
                 <a href="https://youtu.be/kauE5amBy0U" target="_blank" class="btn-trailer">TRAILER</a>
@@ -156,7 +157,7 @@
             <div class="content">
                 <div class="meta">1994 | Regie: Wong Kar-wai</div>
                 <h3>Chungking Express</h3>
-                <div class="quote">"Pure cineastische Lyrik." <br>— Wong Kar-wai</div>
+                <div class="quote">"Nach diesem Film war ich einfach glücklich, ein Regisseur zu sein." <br>— Quentin Tarantino</div>
                 <div class="meta" style="text-transform:none;">Cast: Tony Leung, Faye Wong</div>
                 <div class="desc">Eine berauschende Reflexion über Einsamkeit und flüchtige Begegnungen im nächtlichen Hongkong.</div>
                 <a href="https://youtu.be/4nwTrhVKQlU" target="_blank" class="btn-trailer">TRAILER</a>
@@ -169,7 +170,7 @@
             <div class="content">
                 <div class="meta">1999 | Regie: Paul Thomas Anderson</div>
                 <h3>Magnolia</h3>
-                <div class="quote">"Die Vergangenheit hat nicht mit uns abgeschlossen." <br>— Jimmy Gator</div>
+                <div class="quote">"Ein gewaltiges, orchestrales Epos über Schmerz und Zufall." <br>— Rolling Stone</div>
                 <div class="meta" style="text-transform:none;">Cast: Tom Cruise, Julianne Moore</div>
                 <div class="desc">Verflochtene Lebenswege am Rande des Nervenzusammenbruchs – ein intensives Ensemble-Drama.</div>
                 <a href="https://youtu.be/KnamcFv_N9Q" target="_blank" class="btn-trailer">TRAILER</a>
@@ -182,7 +183,7 @@
             <div class="content">
                 <div class="meta">2000 | Regie: Béla Tarr</div>
                 <h3>Die Werckmeisterschen Harmonien</h3>
-                <div class="quote">"Kino jenseits der Zeit." <br>— Béla Tarr</div>
+                <div class="quote">"Eine hypnotische Erfahrung, die das Wesen des Menschseins berührt." <br>— Susan Sontag</div>
                 <div class="meta" style="text-transform:none;">Cast: Lars Rudolph</div>
                 <div class="desc">Eine meditative Reise in die Seele, erzählt in hypnotischen, langen Einstellungen.</div>
                 <a href="https://youtu.be/-tJVdq_G_Go" target="_blank" class="btn-trailer">TRAILER</a>
@@ -195,7 +196,7 @@
             <div class="content">
                 <div class="meta">1985 | Regie: Terry Gilliam</div>
                 <h3>Brazil</h3>
-                <div class="quote">"Ein futuristischer Albtraum voller Witz." <br>— Terry Gilliam</div>
+                <div class="quote">"Der '1984' für das Computerzeitalter – visionär und wahnsinnig komisch." <br>— Time Out</div>
                 <div class="meta" style="text-transform:none;">Cast: Jonathan Pryce, Robert De Niro</div>
                 <div class="desc">Eine satirische Dystopie über den Kampf des Individuums gegen eine übermächtige Bürokratie.</div>
                 <a href="https://youtu.be/ZKPFC8DA9_8" target="_blank" class="btn-trailer">TRAILER</a>
@@ -208,7 +209,7 @@
             <div class="content">
                 <div class="meta">1991 | Regie: Jim Jarmusch</div>
                 <h3>Night on Earth</h3>
-                <div class="quote">"Jarmusch in Bestform." <br>— The New York Times</div>
+                <div class="quote">"Eine Liebeserklärung an die flüchtigen Momente der Nacht." <br>— The New York Times</div>
                 <div class="meta" style="text-transform:none;">Cast: Winona Ryder, Roberto Benigni</div>
                 <div class="desc">Fünf Taxifahrten, fünf Metropolen: Ein lakonischer Blick auf die Poesie des Zufalls.</div>
                 <a href="https://youtu.be/6m_YI_t9o_4" target="_blank" class="btn-trailer">TRAILER</a>
@@ -221,7 +222,7 @@
             <div class="content">
                 <div class="meta">1993 | Regie: Emir Kusturica</div>
                 <h3>Arizona Dream</h3>
-                <div class="quote">"Träume sind realer als die Wirklichkeit." <br>— Emir Kusturica</div>
+                <div class="quote">"Ein surrealer, wunderschöner Rausch über die Freiheit der Träume." <br>— Variety</div>
                 <div class="meta" style="text-transform:none;">Cast: Johnny Depp, Jerry Lewis</div>
                 <div class="desc">Eine exzentrische Erzählung über die Sehnsucht nach Freiheit und die Absurdität des Daseins.</div>
                 <a href="https://youtu.be/OQ6bcPoCDF4" target="_blank" class="btn-trailer">TRAILER</a>
@@ -234,7 +235,7 @@
             <div class="content">
                 <div class="meta">1990 | Regie: Adrian Lyne</div>
                 <h3>Jacob's Ladder</h3>
-                <div class="quote">"Wenn du Angst vor dem Sterben hast, siehst du Teufel." <br>— Louis</div>
+                <div class="quote">"Ein erschreckend effektiver Albtraum, der lange nachwirkt." <br>— Janet Maslin</div>
                 <div class="meta" style="text-transform:none;">Cast: Tim Robbins</div>
                 <div class="desc">Ein verstörender Grenzgang zwischen Realität und Wahn, der die Schrecken des Krieges zeigt.</div>
                 <a href="https://youtu.be/rJztRnDxdM8" target="_blank" class="btn-trailer">TRAILER</a>
@@ -247,7 +248,7 @@
             <div class="content">
                 <div class="meta">1986 | Regie: Roland Joffé</div>
                 <h3>The Mission</h3>
-                <div class="quote">"Die Kraft der Vergebung gegen die Gewalt." <br>— Roland Joffé</div>
+                <div class="quote">"Visuell atemberaubend und von Ennio Morricones bester Partitur getragen." <br>— Hollywood Reporter</div>
                 <div class="meta" style="text-transform:none;">Cast: Jeremy Irons, Robert De Niro</div>
                 <div class="desc">Ein kraftvolles Epos über Glauben und Widerstand vor der Kulisse gigantischer Wasserfälle.</div>
                 <a href="https://youtu.be/HU14R9hbUFc" target="_blank" class="btn-trailer">TRAILER</a>
@@ -260,7 +261,7 @@
             <div class="content">
                 <div class="meta">1990 | Regie: Martin Scorsese</div>
                 <h3>Goodfellas</h3>
-                <div class="quote">"Ich wollte immer ein Gangster sein." <br>— Henry Hill</div>
+                <div class="quote">"Kein anderer Film hat die Verlockung des Verbrechens jemals so brillant eingefangen." <br>— Sight & Sound</div>
                 <div class="meta" style="text-transform:none;">Cast: Ray Liotta, Robert De Niro</div>
                 <div class="desc">Eine rasant inszenierte Chronik des organisierten Verbrechens – ein unerreichtes Meisterwerk.</div>
                 <a href="https://youtu.be/2ilzidi_J8Q" target="_blank" class="btn-trailer">TRAILER</a>
@@ -273,7 +274,7 @@
             <div class="content">
                 <div class="meta">1983 | Regie: François Truffaut</div>
                 <h3>Auf Liebe und Tod</h3>
-                <div class="quote">"Truffauts verspieltes Finale." <br>— François Truffaut</div>
+                <div class="quote">"Ein leichtfüßiges, elegantes Denkmal an das Genre des Film Noir." <br>— Le Monde</div>
                 <div class="meta" style="text-transform:none;">Cast: Fanny Ardant</div>
                 <div class="desc">Eine charmante Verbeugung vor dem klassischen Krimi, getragen von französischer Eleganz.</div>
                 <a href="https://youtu.be/l7kHRuhZnlA" target="_blank" class="btn-trailer">TRAILER</a>
@@ -286,7 +287,7 @@
             <div class="content">
                 <div class="meta">1970 | Regie: John Cassavetes</div>
                 <h3>Husbands</h3>
-                <div class="quote">"Ehrlicher war das Kino selten." <br>— John Cassavetes</div>
+                <div class="quote">"Ein schonungsloser, fast schmerzhaft ehrlicher Blick auf die männliche Seele." <br>— The New Yorker</div>
                 <div class="meta" style="text-transform:none;">Cast: Ben Gazzara, Peter Falk</div>
                 <div class="desc">Ein radikaler Blick auf Männlichkeit, Freundschaft und Trauer. Rohes Gefühlskino.</div>
                 <a href="https://youtu.be/YRJ8VecuWEQ" target="_blank" class="btn-trailer">TRAILER</a>
@@ -299,7 +300,7 @@
             <div class="content">
                 <div class="meta">1991 | Regie: James Cameron</div>
                 <h3>Terminator 2</h3>
-                <div class="quote">"Hasta la vista, baby." <br>— Der Terminator</div>
+                <div class="quote">"Der Goldstandard des Actionkinos, der das Herz nicht vergisst." <br>— Total Film</div>
                 <div class="meta" style="text-transform:none;">Cast: Arnold Schwarzenegger</div>
                 <div class="desc">Ein Meilenstein, der bahnbrechende Effekte mit einer humanistischen Botschaft verbindet.</div>
                 <a href="https://youtu.be/CRRlbK5w8AE" target="_blank" class="btn-trailer">TRAILER</a>
@@ -312,7 +313,7 @@
             <div class="content">
                 <div class="meta">1994 | Regie: Luc Besson</div>
                 <h3>Léon – The Professional</h3>
-                <div class="quote">"Keine Frauen, keine Kinder." <br>— Léon</div>
+                <div class="quote">"Ein hocheleganter Thriller mit einer unglaublichen emotionalen Tiefe." <br>— Chicago Tribune</div>
                 <div class="meta" style="text-transform:none;">Cast: Jean Reno, Natalie Portman</div>
                 <div class="desc">Die ungewöhnliche Symbiose zwischen einem Profikiller und einem Waisenmädchen.</div>
                 <a href="https://youtu.be/aNQqoExfQsg" target="_blank" class="btn-trailer">TRAILER</a>
@@ -325,7 +326,7 @@
             <div class="content">
                 <div class="meta">1992 | Regie: Quentin Tarantino</div>
                 <h3>Reservoir Dogs</h3>
-                <div class="quote">"Sind Sie fertig mit dem Gebelle?" <br>— Mr. Blonde</div>
+                <div class="quote">"Ein bahnbrechendes Debüt, das das Krimi-Genre für immer verändert hat." <br>— Newsweek</div>
                 <div class="meta" style="text-transform:none;">Cast: Harvey Keitel, Tim Roth</div>
                 <div class="desc">Ein klaustrophobisches Kammerspiel, das durch seine Erzählweise das Genre revolutionierte.</div>
                 <a href="https://youtu.be/vayksn4Y93A" target="_blank" class="btn-trailer">TRAILER</a>
@@ -376,5 +377,4 @@
 </script>
 
 </body>
-
-</html> 
+</html>
